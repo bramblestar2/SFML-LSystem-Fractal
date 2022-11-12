@@ -138,9 +138,9 @@ void Window::startFractal()
 {
 	window->setTitle("Loading...");
 
-	//Levy C Curve
+	//Terdragon
 	RuleSet rs;
-	rs.addRule("F", "F+F-F-F+F");
+	rs.addRule("F", "F+F-F");
 
 	LSystem lsys("F", rs);
 	std::string lString = lsys.getString(steps);
@@ -154,9 +154,9 @@ void Window::startFractal()
 		if (lString.at(i) == 'F')
 			t.move(5);
 		else if (lString.at(i) == '+')
-			t.rt(90);
+			t.rt(120);
 		else if (lString.at(i) == '-')
-			t.lt(90);
+			t.lt(120);
 	}
 
 	vertices = t.getVertices();
@@ -166,7 +166,7 @@ void Window::startFractal()
 
 void Window::setLines()
 {
-	lines = sf::VertexArray(sf::LinesStrip, vertices.size());
+	lines = sf::VertexArray(sf::TrianglesStrip, vertices.size());
 
 	int hue = 0;
 
