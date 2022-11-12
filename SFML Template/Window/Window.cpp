@@ -167,7 +167,7 @@ void Window::startFractal()
 void Window::setLines()
 {
 	lines = sf::VertexArray(sf::TrianglesStrip, vertices.size());
-
+	
 	int hue = 0;
 
 	for (int i = 0; i < vertices.size(); i++)
